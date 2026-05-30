@@ -2,23 +2,19 @@
 
 @theme {
   --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
+  --color-primary-100: #dce1ff;
+  --color-primary-200: #b6c4ff;
+  --color-primary-300: #90a8ff;
+  --color-primary-400: #4059aa;
+  --color-primary-500: #1e3a8a; /* primary-container */
+  --color-primary-600: #264191; /* on-primary-fixed-variant */
+  --color-primary-700: #00236f; /* primary */
+  --color-primary-800: #00164e; /* on-primary-fixed */
+  --color-primary-900: #000000;
 
-  --animate-blob: blob 7s infinite;
-}
-
-@keyframes blob {
-  0% { transform: translate(0px, 0px) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
-  100% { transform: translate(0px, 0px) scale(1); }
-}
-
-.animation-delay-2000 {
-  animation-delay: 2s;
+  --color-surface-canvas: #f8fafc;
+  --color-surface-card: #ffffff;
+  --color-surface-border: #e5e7eb;
 }
 
 body {
@@ -28,61 +24,84 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0f172a; /* Slate 900 */
-  color: #f8fafc; /* Slate 50 */
+  background-color: var(--color-surface-canvas);
+  color: #191c1e;
 }
 
-/* Glassmorphism utility */
-.glass {
-  background: rgba(30, 41, 59, 0.7); /* Slate 800 with opacity */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* Auth Container */
+.auth-container {
+  width: 100%;
+  max-width: 420px; /* from designMd spacing */
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-surface-border);
+  border-radius: 0.25rem; /* from designMd rounded.DEFAULT */
+  padding: 2rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* very subtle shadow */
 }
 
-/* Smooth input styling */
+/* Input Fields */
+.input-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  color: #444651; /* on-surface-variant */
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
 .input-field {
   width: 100%;
-  background-color: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
-  color: white;
-  transition: all 0.2s ease-in-out;
+  background-color: #ffffff;
+  border: 1px solid #c5c5d3; /* outline-variant */
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 14px;
+  color: #191c1e;
+  transition: all 0.2s ease;
 }
 
 .input-field:focus {
   outline: none;
   border-color: var(--color-primary-500);
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.1);
 }
 
-.input-label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #94a3b8; /* Slate 400 */
-  margin-bottom: 0.375rem;
-}
-
+/* Buttons */
 .btn-primary {
   width: 100%;
-  background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
-  color: white;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
+  background-color: var(--color-primary-500);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 14px;
   font-weight: 600;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: background-color 0.2s ease;
+  border: none;
 }
 
 .btn-primary:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-600) 100%);
+  background-color: var(--color-primary-700);
 }
 
 .btn-primary:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
+}
+
+.btn-secondary {
+  width: 100%;
+  background-color: #ffffff;
+  color: #111827;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #f1f5f9;
 }
